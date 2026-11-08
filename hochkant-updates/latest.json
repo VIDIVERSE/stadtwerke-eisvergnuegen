@@ -1,10 +1,10 @@
 {
- "version": "1.7.0",
- "build": 170,
+ "version": "1.7.1",
+ "build": 171,
  "minBoot": 1,
- "notes": "Neu: Freigeben & Steuern von zu Hause (Fernansicht), Autostart & Selbstheilung, Löschlink für Gäste, Datenschutz-Hinweis, Social-Media-Version mit Rahmen, Statistik, QR-Plakat als PDF, doppelte Fotos werden erkannt.",
- "file": "bundle-170.json",
- "sha256": "2c84142b9fd911f1a85bb2f7c4cb2ad8cb1eae4e8147af954cdadcad57228574",
- "size": 293910,
- "date": "2026-11-08T21:42:06.941Z"
+ "notes": "Überall „Fotobildschirm“ statt „Fotowand“, Datenschutz-Abschnitt auf der Upload-Seite entfernt.",
+ "file": "bundle-171.json",
+ "sha256": "aa7f1eea0e1045273a4f42bd622cc726d3cff435fc727ad522cc2b2e4727ce68",
+ "size": 292550,
+ "date": "2026-11-08T21:53:19.277Z"
 }

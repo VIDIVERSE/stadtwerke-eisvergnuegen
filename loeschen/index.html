@@ -2,7 +2,7 @@
 <html lang="de"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0d0d12"><meta name="robots" content="noindex">
-<title>Fotowand · Foto hochladen</title>
+<title>Fotobildschirm · Foto hochladen</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:#0d0d12;color:#f3f3f7;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100svh;display:flex;flex-direction:column}
@@ -49,20 +49,20 @@ async function check(){
   const ago=t&&t.ts?Math.round((Date.now()-t.ts)/60000):null, info=t?('Stand: vor '+ago+' min'+(okUrl?' · '+t.url.replace('https://',''):'')):'';
   if(IS_DEL){
     if(alive){ location.replace(t.url+'/del'+location.hash); return; }
-    say('Foto löschen','Die Fotowand ist gerade nicht erreichbar. Lass die Seite offen – sobald sie wieder online ist, geht es automatisch weiter. Du kannst die Löschung auch direkt bei interevent verlangen.',info);
+    say('Foto löschen','Der Fotobildschirm ist gerade nicht erreichbar. Lass die Seite offen – sobald sie wieder online ist, geht es automatisch weiter. Du kannst die Löschung auch direkt bei interevent verlangen.',info);
     setTimeout(check,6000); return;
   }
   if(live){
     if(alive&&t.live){ location.replace(t.url+'/live'); return; }
-    if(!t) say('Fernansicht','Der Status der Fotowand kann gerade nicht geladen werden. Es geht automatisch weiter.');
+    if(!t) say('Fernansicht','Der Status des Fotobildschirms kann gerade nicht geladen werden. Es geht automatisch weiter.');
     else if(!okUrl) say('Fernansicht','Hochkant ist gerade nicht mit dem Internet verbunden (Internet-Upload aus oder PC offline). Es geht automatisch weiter, sobald er wieder da ist.',info);
     else if(!t.live) say('Fernansicht','Die Fernansicht ist im Steuerfenster ausgeschaltet oder hat noch kein Passwort.',info);
-    else say('Fernansicht','Verbinde mit der Fotowand … das kann nach einem Neustart ein bis zwei Minuten dauern.',info);
+    else say('Fernansicht','Verbinde mit dem Fotobildschirm … das kann nach einem Neustart ein bis zwei Minuten dauern.',info);
     setTimeout(check,5000); return;
   }
-  if(t&&t.on&&okUrl&&!alive){ say('Verbinde mit der Fotowand …','Einen Moment – die Verbindung wird gerade aufgebaut. Es geht gleich automatisch weiter.',info); setTimeout(check,4000); return; }
+  if(t&&t.on&&okUrl&&!alive){ say('Verbinde mit dem Fotobildschirm …','Einen Moment – die Verbindung wird gerade aufgebaut. Es geht gleich automatisch weiter.',info); setTimeout(check,4000); return; }
   if(t&&t.on&&alive&&/^[a-z0-9]+$/.test(t.code)){ const u=t.url+'/g/'+t.code; $('go').href=u; $('go').style.display='inline-block'; location.replace(u); return; }
-  say(t?'Die Fotowand ist gerade offline':'Gerade nicht erreichbar','Sobald der Upload wieder läuft, geht es hier automatisch weiter. Lass die Seite einfach offen.',info);
+  say(t?'Der Fotobildschirm ist gerade offline':'Gerade nicht erreichbar','Sobald der Upload wieder läuft, geht es hier automatisch weiter. Lass die Seite einfach offen.',info);
   setTimeout(check,8000);
 }
 addEventListener('hashchange',check);
