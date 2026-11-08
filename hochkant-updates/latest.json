@@ -1,10 +1,10 @@
 {
- "version": "1.6.3",
- "build": 163,
+ "version": "1.6.4",
+ "build": 164,
  "minBoot": 1,
- "notes": "Fernansicht-Link zuverlässiger: GitHub-Seite holt die aktuelle Adresse direkt und zeigt an, woran es hängt.",
- "file": "bundle-163.json",
- "sha256": "dfca2e18a003616e33808e4b4def5e0f503ecf4313132336f924e54cfa4dbd33",
- "size": 236671,
- "date": "2026-11-08T20:19:34.192Z"
+ "notes": "Fernansicht hat jetzt einen eigenen Link: …github.io/stadtwerke-eisvergnuegen/live/",
+ "file": "bundle-164.json",
+ "sha256": "a01ce70b8f1c6f45bd203c70846b0e33116dd29d952c8a04ccbcf11f491d9ab3",
+ "size": 237051,
+ "date": "2026-11-08T20:22:44.246Z"
 }

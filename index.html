@@ -30,17 +30,18 @@ footer b{color:#a9a9b8;font-weight:600}
 <script>
 const $=id=>document.getElementById(id);
 const OWNER=location.hostname.split('.')[0], REPO=location.pathname.split('/').filter(Boolean)[0]||'';
+const IS_LIVE_PATH=/\/live\/(index\.html)?$/.test(location.pathname), BASE=IS_LIVE_PATH?'../':'';
 const TUN=/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/;
 async function ping(u){ try{ const r=await fetch(u+'/ping',{cache:'no-store',signal:AbortSignal.timeout(7000)}); return r.ok&&(await r.text())==='ok'; }catch(e){ return false; } }
 async function target(){
   // frisch über die GitHub-API (GitHub Pages hängt nach Änderungen oft 1–10 Minuten hinterher), sonst die Pages-Kopie
   try{ const r=await fetch('https://api.github.com/repos/'+OWNER+'/'+REPO+'/contents/target.json?t='+Date.now(),{cache:'no-store',headers:{Accept:'application/vnd.github.raw'},signal:AbortSignal.timeout(7000)}); if(r.ok) return await r.json(); }catch(e){}
-  try{ const r=await fetch('target.json?t='+Date.now(),{cache:'no-store'}); if(r.ok) return await r.json(); }catch(e){}
+  try{ const r=await fetch(BASE+'target.json?t='+Date.now(),{cache:'no-store'}); if(r.ok) return await r.json(); }catch(e){}
   return null;
 }
 function say(h,p,d){ $('h').textContent=h; $('p').textContent=p; $('d').textContent=d||''; $('go').style.display='none'; }
 async function check(){
-  const live=location.hash==='#live';
+  const live=IS_LIVE_PATH||location.hash==='#live';
   const t=await target();
   if(t&&t.event) $('ev').textContent=t.event;
   const okUrl=!!(t&&TUN.test(t.url));
