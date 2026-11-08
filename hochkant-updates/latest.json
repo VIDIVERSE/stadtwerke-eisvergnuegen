@@ -1,10 +1,10 @@
 {
- "version": "1.6.1",
- "build": 161,
+ "version": "1.6.2",
+ "build": 162,
  "minBoot": 1,
- "notes": "Fix: Gäste landen nicht mehr auf „Error 1033“, wenn Hochkant gerade neu gestartet ist. Die neue Adresse wird erst weitergegeben, wenn sie wirklich erreichbar ist.",
- "file": "bundle-161.json",
- "sha256": "e490fb98a12b614657296bc410363d31f4e60c8c5f8cfb4ada6bc22d3e22f15e",
- "size": 234187,
- "date": "2026-11-08T20:02:18.831Z"
+ "notes": "Fix: Internet-Upload hing bei „Verbinde mit Cloudflare …“. Hochkant prüft die Verbindung jetzt direkt bei cloudflared statt über die eigene Internetadresse.",
+ "file": "bundle-162.json",
+ "sha256": "5cc1fe5f0d0fe0bb8875000de4866d657b88682514004231326033a9a2c90433",
+ "size": 235159,
+ "date": "2026-11-08T20:16:33.826Z"
 }
