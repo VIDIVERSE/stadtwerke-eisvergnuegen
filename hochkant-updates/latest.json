@@ -1,10 +1,10 @@
 {
- "version": "1.6.0",
- "build": 160,
+ "version": "1.6.1",
+ "build": 161,
  "minBoot": 1,
- "notes": "Neu: Fernansicht – von zu Hause sehen, was auf dem Bildschirm läuft (Passwort, Ende-zu-Ende verschlüsselt). Einschalten unter „Fernansicht“.",
- "file": "bundle-160.json",
- "sha256": "a38294dc15c8226ed6e0b14ef5cff9a137ea4affadf11a28394b74f9e9f39803",
- "size": 232327,
- "date": "2026-11-08T19:50:40.866Z"
+ "notes": "Fix: Gäste landen nicht mehr auf „Error 1033“, wenn Hochkant gerade neu gestartet ist. Die neue Adresse wird erst weitergegeben, wenn sie wirklich erreichbar ist.",
+ "file": "bundle-161.json",
+ "sha256": "e490fb98a12b614657296bc410363d31f4e60c8c5f8cfb4ada6bc22d3e22f15e",
+ "size": 234187,
+ "date": "2026-11-08T20:02:18.831Z"
 }
