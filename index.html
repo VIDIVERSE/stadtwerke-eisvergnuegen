@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0d0d12"><meta name="robots" content="noindex">
+<title>Fotowand · Foto hochladen</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#0d0d12;color:#f3f3f7;font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100svh;display:flex;flex-direction:column}
+main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px 24px;gap:16px}
+.logo{width:46px;height:70px;border-radius:9px;border:4px solid #ff3d7f;position:relative}
+.logo:after{content:"";position:absolute;left:6px;right:6px;bottom:8px;height:18px;border-radius:4px;background:#ff3d7f;opacity:.8}
+.ev{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:#ff3d7f;font-weight:700;min-height:1em}
+h1{font-size:24px;font-weight:800}
+p{color:#9a9aab;max-width:340px}
+.sp{width:34px;height:34px;border-radius:50%;border:3px solid #2a2a36;border-top-color:#ff3d7f;animation:r 1s linear infinite}
+@keyframes r{to{transform:rotate(360deg)}}
+a.btn{display:none;margin-top:6px;padding:14px 26px;border-radius:14px;background:#ff3d7f;color:#fff;font-weight:700;text-decoration:none}
+footer{text-align:center;font-size:12px;color:#6c6c7c;padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
+footer b{color:#a9a9b8;font-weight:600}
+</style></head><body>
+<main>
+  <div class="logo"></div>
+  <div class="ev" id="ev"></div>
+  <h1 id="h">Einen Moment …</h1>
+  <p id="p">Die Upload-Seite wird geöffnet.</p>
+  <div class="sp" id="sp"></div>
+  <a class="btn" id="go" href="#">Zur Upload-Seite</a>
+</main>
+<footer><b>Hochkant</b> · von Jonathan Reinhardt für interevent</footer>
+<script>
+const $=id=>document.getElementById(id);
+async function check(){
+  let t=null;
+  try{ const r=await fetch('target.json?t='+Date.now(),{cache:'no-store'}); if(r.ok) t=await r.json(); }catch(e){}
+  if(t&&t.event) $('ev').textContent=t.event;
+  if(t&&t.on&&/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(t.url)&&/^[a-z0-9]+$/.test(t.code)){
+    const u=t.url+'/g/'+t.code; $('go').href=u; $('go').style.display='inline-block';
+    location.replace(u); return;
+  }
+  $('h').textContent=t?'Die Fotowand ist gerade offline':'Gerade nicht erreichbar';
+  $('p').textContent='Sobald der Upload wieder läuft, geht es hier automatisch weiter. Lass die Seite einfach offen.';
+  $('go').style.display='none';
+  setTimeout(check,8000);
+}
+check();
+</script></body></html>
