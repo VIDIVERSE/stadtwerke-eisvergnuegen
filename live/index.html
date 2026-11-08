@@ -30,7 +30,7 @@ footer b{color:#a9a9b8;font-weight:600}
 <script>
 const $=id=>document.getElementById(id);
 const OWNER=location.hostname.split('.')[0], REPO=location.pathname.split('/').filter(Boolean)[0]||'';
-const IS_LIVE_PATH=/\/live\/(index\.html)?$/.test(location.pathname), BASE=IS_LIVE_PATH?'../':'';
+const IS_LIVE_PATH=/\/live\/(index\.html)?$/.test(location.pathname), IS_DEL=/\/loeschen\/(index\.html)?$/.test(location.pathname), BASE=(IS_LIVE_PATH||IS_DEL)?'../':'';
 const TUN=/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/;
 async function ping(u){ try{ const r=await fetch(u+'/ping',{cache:'no-store',signal:AbortSignal.timeout(7000)}); return r.ok&&(await r.text())==='ok'; }catch(e){ return false; } }
 async function target(){
@@ -47,6 +47,11 @@ async function check(){
   const okUrl=!!(t&&TUN.test(t.url));
   const alive=okUrl?await ping(t.url):false;
   const ago=t&&t.ts?Math.round((Date.now()-t.ts)/60000):null, info=t?('Stand: vor '+ago+' min'+(okUrl?' · '+t.url.replace('https://',''):'')):'';
+  if(IS_DEL){
+    if(alive){ location.replace(t.url+'/del'+location.hash); return; }
+    say('Foto löschen','Die Fotowand ist gerade nicht erreichbar. Lass die Seite offen – sobald sie wieder online ist, geht es automatisch weiter. Du kannst die Löschung auch direkt bei interevent verlangen.',info);
+    setTimeout(check,6000); return;
+  }
   if(live){
     if(alive&&t.live){ location.replace(t.url+'/live'); return; }
     if(!t) say('Fernansicht','Der Status der Fotowand kann gerade nicht geladen werden. Es geht automatisch weiter.');

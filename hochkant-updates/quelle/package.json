@@ -1,8 +1,8 @@
 {
   "name": "hochkant",
   "productName": "Hochkant",
-  "version": "1.6.5",
-  "hkBuild": 165,
+  "version": "1.7.0",
+  "hkBuild": 170,
   "main": "boot.js",
   "dependencies": {
     "qrcode": "^1.5.4"
@@ -26,7 +26,8 @@
       "node_modules/**/*",
       "logo-white.png",
       "logo-stadt.png",
-      "live.html"
+      "live.html",
+      "logo-black.png"
     ],
     "extraResources": [
       {
