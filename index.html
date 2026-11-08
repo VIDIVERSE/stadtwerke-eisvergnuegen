@@ -28,10 +28,19 @@ footer b{color:#a9a9b8;font-weight:600}
 </main>
 <script>
 const $=id=>document.getElementById(id);
+async function ping(u){ try{ const r=await fetch(u+'/ping',{cache:'no-store',signal:AbortSignal.timeout(6000)}); return r.ok&&(await r.text())==='ok'; }catch(e){ return false; } }
 async function check(){
   let t=null;
   try{ const r=await fetch('target.json?t='+Date.now(),{cache:'no-store'}); if(r.ok) t=await r.json(); }catch(e){}
   if(t&&t.event) $('ev').textContent=t.event;
+  const okUrl=t&&/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(t.url);
+  const alive=okUrl?await ping(t.url):false;
+  if(location.hash==='#live'){
+    $('h').textContent='Fernansicht';
+    if(alive&&t.live){ location.replace(t.url+'/live'); return; }
+    $('p').textContent='Die Fernansicht ist gerade nicht erreichbar. Läuft Hochkant mit Internet-Upload und eingeschalteter Fernansicht? Es geht automatisch weiter.'; $('go').style.display='none'; setTimeout(check,8000); return;
+  }
+  if(t&&t.on&&okUrl&&!alive){ $('h').textContent='Verbinde mit der Fotowand …'; $('p').textContent='Einen Moment – die Verbindung wird gerade aufgebaut. Es geht gleich automatisch weiter.'; $('go').style.display='none'; setTimeout(check,4000); return; }
   if(t&&t.on&&/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(t.url)&&/^[a-z0-9]+$/.test(t.code)){
     const u=t.url+'/g/'+t.code; $('go').href=u; $('go').style.display='inline-block';
     location.replace(u); return;
