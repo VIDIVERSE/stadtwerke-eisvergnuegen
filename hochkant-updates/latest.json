@@ -1,10 +1,10 @@
 {
- "version": "1.5.0",
- "build": 150,
+ "version": "1.5.1",
+ "build": 151,
  "minBoot": 1,
- "notes": "Basisversion mit Fern-Updates",
- "file": "bundle-150.json",
- "sha256": "692d908f4ea1929bcb9521a755c5cac9c7d70df7a2649f6273b1fa0d8d57adb3",
+ "notes": "Testupdate – nur die Versionsnummer ändert sich. Wenn du das siehst, klappen Fern-Updates.",
+ "file": "bundle-151.json",
+ "sha256": "41a0124667f737631b63b73afd93fc025d9101beb461fec98f7e9c6588c0d595",
  "size": 208944,
- "date": "2026-11-08T19:03:50.770Z"
+ "date": "2026-11-08T19:25:14.365Z"
 }

@@ -1,8 +1,8 @@
 {
   "name": "hochkant",
   "productName": "Hochkant",
-  "version": "1.5.0",
-  "hkBuild": 150,
+  "version": "1.5.1",
+  "hkBuild": 151,
   "main": "boot.js",
   "dependencies": {
     "qrcode": "^1.5.4"
