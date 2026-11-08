@@ -1,10 +1,10 @@
 {
- "version": "1.5.1",
- "build": 151,
+ "version": "1.6.0",
+ "build": 160,
  "minBoot": 1,
- "notes": "Testupdate – nur die Versionsnummer ändert sich. Wenn du das siehst, klappen Fern-Updates.",
- "file": "bundle-151.json",
- "sha256": "41a0124667f737631b63b73afd93fc025d9101beb461fec98f7e9c6588c0d595",
- "size": 208944,
- "date": "2026-11-08T19:25:14.365Z"
+ "notes": "Neu: Fernansicht – von zu Hause sehen, was auf dem Bildschirm läuft (Passwort, Ende-zu-Ende verschlüsselt). Einschalten unter „Fernansicht“.",
+ "file": "bundle-160.json",
+ "sha256": "a38294dc15c8226ed6e0b14ef5cff9a137ea4affadf11a28394b74f9e9f39803",
+ "size": 232327,
+ "date": "2026-11-08T19:50:40.866Z"
 }
