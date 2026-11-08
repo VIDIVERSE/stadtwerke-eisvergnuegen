@@ -1,10 +1,10 @@
 {
- "version": "1.6.2",
- "build": 162,
+ "version": "1.6.3",
+ "build": 163,
  "minBoot": 1,
- "notes": "Fix: Internet-Upload hing bei „Verbinde mit Cloudflare …“. Hochkant prüft die Verbindung jetzt direkt bei cloudflared statt über die eigene Internetadresse.",
- "file": "bundle-162.json",
- "sha256": "5cc1fe5f0d0fe0bb8875000de4866d657b88682514004231326033a9a2c90433",
- "size": 235159,
- "date": "2026-11-08T20:16:33.826Z"
+ "notes": "Fernansicht-Link zuverlässiger: GitHub-Seite holt die aktuelle Adresse direkt und zeigt an, woran es hängt.",
+ "file": "bundle-163.json",
+ "sha256": "dfca2e18a003616e33808e4b4def5e0f503ecf4313132336f924e54cfa4dbd33",
+ "size": 236671,
+ "date": "2026-11-08T20:19:34.192Z"
 }

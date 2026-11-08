@@ -24,31 +24,41 @@ footer b{color:#a9a9b8;font-weight:600}
   <h1 id="h">Einen Moment …</h1>
   <p id="p">Die Upload-Seite wird geöffnet.</p>
   <div class="sp" id="sp"></div>
+  <div id="d" style="font-size:11.5px;color:#6c6c7c;word-break:break-all;max-width:340px"></div>
   <a class="btn" id="go" href="#">Zur Upload-Seite</a>
 </main>
 <script>
 const $=id=>document.getElementById(id);
-async function ping(u){ try{ const r=await fetch(u+'/ping',{cache:'no-store',signal:AbortSignal.timeout(6000)}); return r.ok&&(await r.text())==='ok'; }catch(e){ return false; } }
+const OWNER=location.hostname.split('.')[0], REPO=location.pathname.split('/').filter(Boolean)[0]||'';
+const TUN=/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/;
+async function ping(u){ try{ const r=await fetch(u+'/ping',{cache:'no-store',signal:AbortSignal.timeout(7000)}); return r.ok&&(await r.text())==='ok'; }catch(e){ return false; } }
+async function target(){
+  // frisch über die GitHub-API (GitHub Pages hängt nach Änderungen oft 1–10 Minuten hinterher), sonst die Pages-Kopie
+  try{ const r=await fetch('https://api.github.com/repos/'+OWNER+'/'+REPO+'/contents/target.json?t='+Date.now(),{cache:'no-store',headers:{Accept:'application/vnd.github.raw'},signal:AbortSignal.timeout(7000)}); if(r.ok) return await r.json(); }catch(e){}
+  try{ const r=await fetch('target.json?t='+Date.now(),{cache:'no-store'}); if(r.ok) return await r.json(); }catch(e){}
+  return null;
+}
+function say(h,p,d){ $('h').textContent=h; $('p').textContent=p; $('d').textContent=d||''; $('go').style.display='none'; }
 async function check(){
-  let t=null;
-  try{ const r=await fetch('target.json?t='+Date.now(),{cache:'no-store'}); if(r.ok) t=await r.json(); }catch(e){}
+  const live=location.hash==='#live';
+  const t=await target();
   if(t&&t.event) $('ev').textContent=t.event;
-  const okUrl=t&&/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(t.url);
+  const okUrl=!!(t&&TUN.test(t.url));
   const alive=okUrl?await ping(t.url):false;
-  if(location.hash==='#live'){
-    $('h').textContent='Fernansicht';
+  const ago=t&&t.ts?Math.round((Date.now()-t.ts)/60000):null, info=t?('Stand: vor '+ago+' min'+(okUrl?' · '+t.url.replace('https://',''):'')):'';
+  if(live){
     if(alive&&t.live){ location.replace(t.url+'/live'); return; }
-    $('p').textContent='Die Fernansicht ist gerade nicht erreichbar. Läuft Hochkant mit Internet-Upload und eingeschalteter Fernansicht? Es geht automatisch weiter.'; $('go').style.display='none'; setTimeout(check,8000); return;
+    if(!t) say('Fernansicht','Der Status der Fotowand kann gerade nicht geladen werden. Es geht automatisch weiter.');
+    else if(!okUrl) say('Fernansicht','Hochkant ist gerade nicht mit dem Internet verbunden (Internet-Upload aus oder PC offline). Es geht automatisch weiter, sobald er wieder da ist.',info);
+    else if(!t.live) say('Fernansicht','Die Fernansicht ist im Steuerfenster ausgeschaltet oder hat noch kein Passwort.',info);
+    else say('Fernansicht','Verbinde mit der Fotowand … das kann nach einem Neustart ein bis zwei Minuten dauern.',info);
+    setTimeout(check,5000); return;
   }
-  if(t&&t.on&&okUrl&&!alive){ $('h').textContent='Verbinde mit der Fotowand …'; $('p').textContent='Einen Moment – die Verbindung wird gerade aufgebaut. Es geht gleich automatisch weiter.'; $('go').style.display='none'; setTimeout(check,4000); return; }
-  if(t&&t.on&&/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/.test(t.url)&&/^[a-z0-9]+$/.test(t.code)){
-    const u=t.url+'/g/'+t.code; $('go').href=u; $('go').style.display='inline-block';
-    location.replace(u); return;
-  }
-  $('h').textContent=t?'Die Fotowand ist gerade offline':'Gerade nicht erreichbar';
-  $('p').textContent='Sobald der Upload wieder läuft, geht es hier automatisch weiter. Lass die Seite einfach offen.';
-  $('go').style.display='none';
+  if(t&&t.on&&okUrl&&!alive){ say('Verbinde mit der Fotowand …','Einen Moment – die Verbindung wird gerade aufgebaut. Es geht gleich automatisch weiter.',info); setTimeout(check,4000); return; }
+  if(t&&t.on&&alive&&/^[a-z0-9]+$/.test(t.code)){ const u=t.url+'/g/'+t.code; $('go').href=u; $('go').style.display='inline-block'; location.replace(u); return; }
+  say(t?'Die Fotowand ist gerade offline':'Gerade nicht erreichbar','Sobald der Upload wieder läuft, geht es hier automatisch weiter. Lass die Seite einfach offen.',info);
   setTimeout(check,8000);
 }
+addEventListener('hashchange',check);
 check();
 </script></body></html>
