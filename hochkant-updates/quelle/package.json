@@ -1,0 +1,55 @@
+{
+  "name": "hochkant",
+  "productName": "Hochkant",
+  "version": "1.5.0",
+  "hkBuild": 150,
+  "main": "boot.js",
+  "dependencies": {
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "electron": "^33.4.11",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "de.interevent.hochkant",
+    "productName": "Hochkant",
+    "copyright": "Jonathan Reinhardt für interevent",
+    "files": [
+      "boot.js",
+      "main.js",
+      "preload.js",
+      "*.html",
+      "icon.png",
+      "package.json",
+      "node_modules/qrcode/**",
+      "node_modules/**/*",
+      "logo-white.png",
+      "logo-stadt.png"
+    ],
+    "extraResources": [
+      {
+        "from": "bin/cloudflared.exe",
+        "to": "cloudflared.exe"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "icon.ico",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "Hochkant-${version}.exe"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}
