@@ -33,11 +33,14 @@ const OWNER=location.hostname.split('.')[0], REPO=location.pathname.split('/').f
 const IS_LIVE_PATH=/\/live\/(index\.html)?$/.test(location.pathname), IS_DEL=/\/loeschen\/(index\.html)?$/.test(location.pathname), BASE=(IS_LIVE_PATH||IS_DEL)?'../':'';
 const TUN=/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/;
 async function ping(u){ try{ const r=await fetch(u+'/ping',{cache:'no-store',signal:AbortSignal.timeout(7000)}); return r.ok&&(await r.text())==='ok'; }catch(e){ return false; } }
+let apiAt=0;
 async function target(){
-  // frisch über die GitHub-API (GitHub Pages hängt nach Änderungen oft 1–10 Minuten hinterher), sonst die Pages-Kopie
-  try{ const r=await fetch('https://api.github.com/repos/'+OWNER+'/'+REPO+'/contents/target.json?t='+Date.now(),{cache:'no-store',headers:{Accept:'application/vnd.github.raw'},signal:AbortSignal.timeout(7000)}); if(r.ok) return await r.json(); }catch(e){}
-  try{ const r=await fetch(BASE+'target.json?t='+Date.now(),{cache:'no-store'}); if(r.ok) return await r.json(); }catch(e){}
-  return null;
+  // 1. raw.githubusercontent.com (aktuell, kein Abruf-Limit)  2. GitHub-API (max. 1×/Minute, Limit 60/Std.)  3. Pages-Kopie
+  const get=async(u,h)=>{ try{ const r=await fetch(u,{cache:'no-store',headers:h||{},signal:AbortSignal.timeout(7000)}); if(r.ok) return await r.json(); }catch(e){} return null; };
+  let t=await get('https://raw.githubusercontent.com/'+OWNER+'/'+REPO+'/main/target.json?t='+Date.now());
+  if(!t&&Date.now()-apiAt>60000){ apiAt=Date.now(); t=await get('https://api.github.com/repos/'+OWNER+'/'+REPO+'/contents/target.json',{Accept:'application/vnd.github.raw'}); }
+  if(!t) t=await get(BASE+'target.json?t='+Date.now());
+  return t;
 }
 function say(h,p,d){ $('h').textContent=h; $('p').textContent=p; $('d').textContent=d||''; $('go').style.display='none'; }
 async function check(){
