@@ -22,7 +22,7 @@ global.HK_BOOT_OK = () => { const c = readCur(); if (c && c.tries) { c.tries = 0
 
 global.HK_RELAUNCH = () => {
   const exe = process.env.PORTABLE_EXECUTABLE_FILE;
-  app._hkExiting = true; app.relaunch(exe ? { execPath: exe, args: [] } : undefined); app.exit(0);
+  app._hkExiting = true; process.env.HK_WAIT_LOCK = '1'; app.relaunch(exe ? { execPath: exe, args: [] } : undefined); app.exit(0);
 };
 let loaded = false;
 (function () {

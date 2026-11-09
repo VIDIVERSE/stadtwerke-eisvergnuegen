@@ -1,12 +1,13 @@
 {
- "version": "1.8.0",
- "build": 180,
+ "version": "1.8.1",
+ "build": 181,
  "minBoot": 1,
- "notes": "Sicherheits-Update: signierte Updates, neue Electron-Version 45, Fotos werden abgeschottet geprüft und ohne Metadaten (GPS) gespeichert, WLAN-Zugriff gesperrt solange der Internet-Upload läuft, Schutz gegen Passwort-Raten und Upload-Fluten.",
- "file": "bundle-180.json",
- "sha256": "253e29c1ec66e2c52fad9837c860ab14db0240b3f23f0574b09cca16bd7659ca",
- "size": 312626,
- "date": "2026-11-09T15:37:43.110Z",
+ "notes": "Fix: Umschalten auf die neue Programmversion hing in einem cmd-Fenster und Hochkant ging aus.",
+ "file": "bundle-181.json",
+ "sha256": "45f651f34cf003b7e585eb7014d16accf48fad78f732c2c90021c12235aea0ac",
+ "size": 312834,
+ "date": "2026-11-09T16:55:31.084Z",
+ "sig": "4fKJOnQOBw6T1SzDxzUHm2lv34MoVL0i+gH3wT4gWTH9Lf9srNZfdhy3mtfnRuyIKulu8BQnryAd4BKbKlixBA==",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -17,6 +18,5 @@
   ],
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
- },
- "sig": "edzeR5ow1RJLPMsfUKPwFYAIGf45bD1oI6JfgF975sVdk+riDbloK+tfQ6RVSce6lIQykOzYI3zf0wINStyUAQ=="
+ }
 }
