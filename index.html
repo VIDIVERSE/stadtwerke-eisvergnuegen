@@ -34,21 +34,24 @@ const IS_LIVE_PATH=/\/live\/(index\.html)?$/.test(location.pathname), IS_DEL=/\/
 const TUN=/^https:\/\/[a-z0-9-]+\.trycloudflare\.com$/;
 async function ping(u){ try{ const r=await fetch(u+'/ping',{cache:'no-store',signal:AbortSignal.timeout(7000)}); return r.ok&&(await r.text())==='ok'; }catch(e){ return false; } }
 let apiAt=0;
+const get=async(u,h)=>{ try{ const r=await fetch(u,{cache:'no-store',headers:h||{},signal:AbortSignal.timeout(7000)}); if(r.ok) return await r.json(); }catch(e){} return null; };
+// GitHub-API: immer frisch, aber nur 60 Abrufe/Stunde → höchstens alle 90 s
+async function fromApi(){ if(Date.now()-apiAt<90000) return null; apiAt=Date.now(); return get('https://api.github.com/repos/'+OWNER+'/'+REPO+'/contents/target.json',{Accept:'application/vnd.github.raw'}); }
+const newest=(...a)=>a.filter(Boolean).sort((x,y)=>(y.ts||0)-(x.ts||0))[0]||null;
 async function target(){
-  // 1. raw.githubusercontent.com (aktuell, kein Abruf-Limit)  2. GitHub-API (max. 1×/Minute, Limit 60/Std.)  3. Pages-Kopie
-  const get=async(u,h)=>{ try{ const r=await fetch(u,{cache:'no-store',headers:h||{},signal:AbortSignal.timeout(7000)}); if(r.ok) return await r.json(); }catch(e){} return null; };
+  // raw.githubusercontent.com hat kein Abruf-Limit, kann aber bis zu 5 Minuten alt sein
   let t=await get('https://raw.githubusercontent.com/'+OWNER+'/'+REPO+'/main/target.json?t='+Date.now());
-  if(!t&&Date.now()-apiAt>60000){ apiAt=Date.now(); t=await get('https://api.github.com/repos/'+OWNER+'/'+REPO+'/contents/target.json',{Accept:'application/vnd.github.raw'}); }
-  if(!t) t=await get(BASE+'target.json?t='+Date.now());
+  if(!t) t=newest(await fromApi(), await get(BASE+'target.json?t='+Date.now()));
   return t;
 }
 function say(h,p,d){ $('h').textContent=h; $('p').textContent=p; $('d').textContent=d||''; $('go').style.display='none'; }
 async function check(){
   const live=IS_LIVE_PATH||location.hash==='#live';
-  const t=await target();
+  let t=await target();
   if(t&&t.event) $('ev').textContent=t.event;
   const okUrl=!!(t&&TUN.test(t.url));
-  const alive=okUrl?await ping(t.url):false;
+  let alive=okUrl?await ping(t.url):false;
+  if(okUrl&&!alive){ const t2=await fromApi(); if(t2&&(t2.ts||0)>(t.ts||0)&&TUN.test(t2.url)){ t=t2; alive=await ping(t.url); } }
   const ago=t&&t.ts?Math.round((Date.now()-t.ts)/60000):null, info=t?('Stand: vor '+ago+' min'+(okUrl?' · '+t.url.replace('https://',''):'')):'';
   if(IS_DEL){
     if(alive){ location.replace(t.url+'/del'+location.hash); return; }
