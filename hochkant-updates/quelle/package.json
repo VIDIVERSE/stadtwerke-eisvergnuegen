@@ -1,15 +1,15 @@
 {
   "name": "hochkant",
   "productName": "Hochkant",
-  "version": "1.7.1",
-  "hkBuild": 171,
+  "version": "1.8.0",
+  "hkBuild": 180,
   "main": "boot.js",
   "dependencies": {
     "qrcode": "^1.5.4"
   },
   "devDependencies": {
-    "electron": "^33.4.11",
-    "electron-builder": "^25.1.8"
+    "electron": "^45.2.3",
+    "electron-builder": "^26.0.12"
   },
   "build": {
     "appId": "de.interevent.hochkant",
@@ -27,7 +27,11 @@
       "logo-white.png",
       "logo-stadt.png",
       "live.html",
-      "logo-black.png"
+      "logo-black.png",
+      "clean.html",
+      "frame.html",
+      "poster.html",
+      "del.html"
     ],
     "extraResources": [
       {

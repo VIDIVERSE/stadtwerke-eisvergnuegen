@@ -7,3 +7,6 @@ Einstellungen und Fotos bleiben dabei erhalten.
 - `latest.json` – aktuelle Version, Build-Nummer, Notizen, Prüfsumme
 - `bundle-<build>.json` – alle Programmdateien (Base64)
 - `quelle/` – Startlader (`boot.js`), `package.json` für den EXE-Bau und `make-update.js` zum Erzeugen neuer Updates
+
+## Sicherheit
+Ab Version 1.8.0 werden nur Updates installiert, die mit dem privaten Hochkant-Schlüssel (Ed25519) signiert sind. Der Schlüssel liegt NICHT in diesem Repo. `exe/` enthält die Programm-Datei in Teilen (für Updates der Electron-Version).
