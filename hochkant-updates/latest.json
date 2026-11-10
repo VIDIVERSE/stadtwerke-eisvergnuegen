@@ -1,12 +1,12 @@
 {
- "version": "1.8.6",
- "build": 186,
+ "version": "1.8.7",
+ "build": 187,
  "minBoot": 1,
- "notes": "Wortfilter für Namen: Schimpfwörter, Links und Telefonnummern werden nicht angezeigt, das Foto landet dann immer erst bei Prüfen. Eigene Sperrwörter einstellbar.",
- "file": "bundle-186.json",
- "sha256": "b074f9b4eefe08e5f31ea64d0151966466ef7c49d197a9ad2381082801bc89fd",
- "size": 328925,
- "date": "2026-11-10T19:26:20.402Z",
+ "notes": "Alarm per E-Mail: Mail bei Ausgabe weg, Internet-Upload weg, Fotos warten lange auf Freigabe oder Neustart nach Absturz/Stromausfall.",
+ "file": "bundle-187.json",
+ "sha256": "d38328ffd86586b9a210bbd863ec4d371ce46a5e62186c7e9faa64ae80ed6b80",
+ "size": 337925,
+ "date": "2026-11-10T21:15:20.067Z",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -18,5 +18,5 @@
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
  },
- "sig": "7yq6CXkrvwbA/0gCjM7ivFDp6/awey3JhM8maNfgOPhy9nVJfeGfjWs3mmyq1Te8jefKwES+paRlOfHaVLFSDA=="
+ "sig": "Fqy6uyaes5PJcH6Suo+1pcwNlH81IVAIK4h+XDl2zh8N/Oy70/IuJ2QTpwJs+ocpvZnFP+oS1rceKasOPA1bDg=="
 }
