@@ -1,13 +1,12 @@
 {
- "version": "1.8.4",
- "build": 184,
+ "version": "1.8.5",
+ "build": 185,
  "minBoot": 1,
- "notes": "GitHub-Seite findet die neue Adresse nach einem Neustart schneller.",
- "file": "bundle-184.json",
- "sha256": "26f30238c63d846280542c108a00f1a3b36364c0546f6c7da554b1b202abf784",
- "size": 314658,
- "date": "2026-11-09T17:22:33.611Z",
- "sig": "L94TO0GpY7aKZj98rRdCdIhwXVj5BTcMdY9h9hHmSYs1ZWWVt0s9PnvguDmbB8BzuTBGJ+5Z/Kf+hzqrCTXICg==",
+ "notes": "Stabiler bei viel Andrang: Uploads stellen sich an statt abgelehnt zu werden, Gäste-Handys versuchen es automatisch nochmal, Bildschirm geht nicht in den Standby, Ausgabe kommt nach Monitor-Wackler zurück, bessere Doppelt-Erkennung, Diagnose-Protokoll.",
+ "file": "bundle-185.json",
+ "sha256": "2a3ca69c7bde74191fc2eff4b7384dcf561b0af22580eb8ca7bfd408c632292b",
+ "size": 322782,
+ "date": "2026-11-10T17:14:50.940Z",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -18,5 +17,6 @@
   ],
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
- }
+ },
+ "sig": "Z8xqNXJp6GGSv3OrFT+HQgoTLQkrA8zmCgq366sJrw7nyCOI8dl7qhiedux4kAXqSJG1zewVy6ubra4ykOSwAw=="
 }
