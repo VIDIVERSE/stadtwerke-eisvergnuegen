@@ -1,12 +1,12 @@
 {
- "version": "1.8.5",
- "build": 185,
+ "version": "1.8.6",
+ "build": 186,
  "minBoot": 1,
- "notes": "Stabiler bei viel Andrang: Uploads stellen sich an statt abgelehnt zu werden, Gäste-Handys versuchen es automatisch nochmal, Bildschirm geht nicht in den Standby, Ausgabe kommt nach Monitor-Wackler zurück, bessere Doppelt-Erkennung, Diagnose-Protokoll.",
- "file": "bundle-185.json",
- "sha256": "2a3ca69c7bde74191fc2eff4b7384dcf561b0af22580eb8ca7bfd408c632292b",
- "size": 322782,
- "date": "2026-11-10T17:14:50.940Z",
+ "notes": "Wortfilter für Namen: Schimpfwörter, Links und Telefonnummern werden nicht angezeigt, das Foto landet dann immer erst bei Prüfen. Eigene Sperrwörter einstellbar.",
+ "file": "bundle-186.json",
+ "sha256": "b074f9b4eefe08e5f31ea64d0151966466ef7c49d197a9ad2381082801bc89fd",
+ "size": 328925,
+ "date": "2026-11-10T19:26:20.402Z",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -18,5 +18,5 @@
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
  },
- "sig": "Z8xqNXJp6GGSv3OrFT+HQgoTLQkrA8zmCgq366sJrw7nyCOI8dl7qhiedux4kAXqSJG1zewVy6ubra4ykOSwAw=="
+ "sig": "7yq6CXkrvwbA/0gCjM7ivFDp6/awey3JhM8maNfgOPhy9nVJfeGfjWs3mmyq1Te8jefKwES+paRlOfHaVLFSDA=="
 }
