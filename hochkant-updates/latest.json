@@ -1,12 +1,12 @@
 {
- "version": "1.8.7",
- "build": 187,
+ "version": "1.8.8",
+ "build": 188,
  "minBoot": 1,
- "notes": "Alarm per E-Mail: Mail bei Ausgabe weg, Internet-Upload weg, Fotos warten lange auf Freigabe oder Neustart nach Absturz/Stromausfall.",
- "file": "bundle-187.json",
- "sha256": "d38328ffd86586b9a210bbd863ec4d371ce46a5e62186c7e9faa64ae80ed6b80",
- "size": 337925,
- "date": "2026-11-10T21:15:20.067Z",
+ "notes": "Alarm-Mail jetzt direkt über dein eigenes Postfach (Gmail/GMX/web.de/T-Online mit App-Passwort) statt über ntfy.sh.",
+ "file": "bundle-188.json",
+ "sha256": "e365f588c4205639a38bbfa26bb21f174e6ae7352e704762b8bca7c7cc8be646",
+ "size": 343621,
+ "date": "2026-11-10T21:23:04.752Z",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -18,5 +18,5 @@
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
  },
- "sig": "Fqy6uyaes5PJcH6Suo+1pcwNlH81IVAIK4h+XDl2zh8N/Oy70/IuJ2QTpwJs+ocpvZnFP+oS1rceKasOPA1bDg=="
+ "sig": "8SF6Uki+s6HZxGHKUmTWuxs/jKrvuAixhYMFsDf/Uh3g2OH76mKfth9L48hQPp/PF1HmNd8hMkCrPZugSBqEDw=="
 }
