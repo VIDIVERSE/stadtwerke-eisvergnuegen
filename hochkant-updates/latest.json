@@ -1,12 +1,12 @@
 {
- "version": "1.8.9",
- "build": 189,
+ "version": "1.9.0",
+ "build": 190,
  "minBoot": 1,
- "notes": "Alarm-Mail kann jetzt auch an weitere Adressen gehen (Feld „Auch an“).",
- "file": "bundle-189.json",
- "sha256": "4fce7764fe9740cc53e7c7dc575edd6e6192353698293572e160f7488258aef1",
- "size": 344669,
- "date": "2026-11-10T21:45:51.133Z",
+ "notes": "Alarm robuster: Mails gehen bei Verbindungsabbruch nicht mehr verloren, falsches Passwort führt nicht zur Sperre, Mail-Zähler übersteht Neustarts, keine falsche Entwarnung beim absichtlichen Ausschalten.",
+ "file": "bundle-190.json",
+ "sha256": "f9978101c96fe7c682992e27e3bcb941825adc99b67d995f9d445099f533715f",
+ "size": 347285,
+ "date": "2026-11-11T17:02:13.423Z",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -18,5 +18,5 @@
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
  },
- "sig": "fPPJtyezLKaFeg6yLVHZNN2zkVMn8pra/C/dF41evcBIFqBneRpWkclyVzPTJ7WrY4TuV818F6RL7OZj1ef0CQ=="
+ "sig": "qARisj4jbdI/XTw1Ys7hqU1BRxGUTaNwR2BnDdTWqPmQvtrUgitwb1zz9jrIqA6KNiNx2Xmvx+4gcQNnyHhDBg=="
 }
