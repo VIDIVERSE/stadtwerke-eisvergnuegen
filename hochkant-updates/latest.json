@@ -1,12 +1,12 @@
 {
- "version": "1.9.3",
- "build": 193,
+ "version": "1.9.4",
+ "build": 194,
  "minBoot": 1,
- "notes": "QR-Banner jetzt immer in Stadtmarketing-Blau, auch bei Gäste-Fotos.",
- "file": "bundle-193.json",
- "sha256": "4e2da63ca626cd15944901e8af08361decaeaf138b6d7984f82f9e1312804554",
- "size": 362985,
- "date": "2026-11-12T12:48:04.087Z",
+ "notes": "Alarm-Mail: Passwörter mit Leerzeichen gehen jetzt (außer bei Gmail-Codes), bei Login-Fehler wird die genaue Meldung vom Mail-Server angezeigt.",
+ "file": "bundle-194.json",
+ "sha256": "d81aff92921dc6c37f6f78d3eec4b9996ec181ee616bd4f9086efc720b7e033e",
+ "size": 363333,
+ "date": "2026-11-12T17:29:14.354Z",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -18,5 +18,5 @@
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
  },
- "sig": "NHVgybeFGcK3Osp1CGJ3hhqU7Q6WV1NdRMrhrBuFoUDhbu5P2TokGkj5TC3kN3Ocvv1ZVRcuWORQMFprT9UlDA=="
+ "sig": "LxwSa6Xq5BxB8sn5qLg7tBCU+GFR3HjPqAQSGv2oJx0rgNW9RLB74KmIMOamIhqIqy1hAZBjDfa/fK3UOxpzAA=="
 }
