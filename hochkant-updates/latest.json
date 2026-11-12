@@ -1,12 +1,12 @@
 {
- "version": "1.9.1",
- "build": 191,
+ "version": "1.9.2",
+ "build": 192,
  "minBoot": 1,
- "notes": "Fernansicht ist jetzt standardmäßig an und bleibt nach einem Neustart so, wie sie zuletzt eingestellt war.",
- "file": "bundle-191.json",
- "sha256": "79f1f82830f831d9f5e2a491b61d33398c87dfd85ecd0196be47ef02d0bdb707",
- "size": 347449,
- "date": "2026-11-11T17:49:59.449Z",
+ "notes": "Stadtmarketing-Logo im QR-Banner jetzt mit transparentem Hintergrund.",
+ "file": "bundle-192.json",
+ "sha256": "09be0219ea80b5ea34c23f1e9fb36edf334e1a7a85c8e19866bedf27dd716a8f",
+ "size": 363225,
+ "date": "2026-11-12T12:41:09.984Z",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -18,5 +18,5 @@
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
  },
- "sig": "FNM6SMmTptaZpH62pB50Tid/pULdqHafbMrFkOyBNVb6uwpgYA9vqoxAADoKL//3RA0mySqTMSbFvBENbEXdDA=="
+ "sig": "RmwPtCD8I86bdgxq7TbCMUT4tlugGFhGNGA2p+AunWFILOEyuslOOvEh+XEWabjudc00zb4LsKPQrMlpYZBmBg=="
 }
