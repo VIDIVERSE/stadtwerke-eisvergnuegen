@@ -1,12 +1,12 @@
 {
- "version": "1.9.2",
- "build": 192,
+ "version": "1.9.3",
+ "build": 193,
  "minBoot": 1,
- "notes": "Stadtmarketing-Logo im QR-Banner jetzt mit transparentem Hintergrund.",
- "file": "bundle-192.json",
- "sha256": "09be0219ea80b5ea34c23f1e9fb36edf334e1a7a85c8e19866bedf27dd716a8f",
- "size": 363225,
- "date": "2026-11-12T12:41:09.984Z",
+ "notes": "QR-Banner jetzt immer in Stadtmarketing-Blau, auch bei Gäste-Fotos.",
+ "file": "bundle-193.json",
+ "sha256": "4e2da63ca626cd15944901e8af08361decaeaf138b6d7984f82f9e1312804554",
+ "size": 362985,
+ "date": "2026-11-12T12:48:04.087Z",
  "exe": {
   "version": "1.8.0",
   "build": 180,
@@ -18,5 +18,5 @@
   "sha256": "40b60f524bd517ca44e65d37252504d0697d613bdba4bf643af197531de42027",
   "size": 118083176
  },
- "sig": "RmwPtCD8I86bdgxq7TbCMUT4tlugGFhGNGA2p+AunWFILOEyuslOOvEh+XEWabjudc00zb4LsKPQrMlpYZBmBg=="
+ "sig": "NHVgybeFGcK3Osp1CGJ3hhqU7Q6WV1NdRMrhrBuFoUDhbu5P2TokGkj5TC3kN3Ocvv1ZVRcuWORQMFprT9UlDA=="
 }
